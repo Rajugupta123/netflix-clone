@@ -41,7 +41,7 @@ const Home = () => {
   useEffect(() => {
     
     const fetchPopularMovies = async()=>{
-       const {data:{results}} = await axios.get(`${url}/movie/${popular}?api_key=${apiKey}&language=en-US&page=1`)
+       const {data:{results}} = await axios.get(`${url}/movie/${popular}?api_key=${apiKey}&language=en-US&page=3`)
       setPopularMovies(results)
     }
 
@@ -81,10 +81,24 @@ const Home = () => {
 
   return (
   <section className="home">
-    <div className="banner"></div>
+    <div className="banner" style={{
+      backgroundImage: popularMovies[0]? `url(${`${imgUrl}/${popularMovies[0].poster_path}`})`: "rgb(16,16,16)"
+    }} >
+
+      {popularMovies[0]&&<h1>{popularMovies[0].original_title}</h1>}
+      {popularMovies[0]&&<p>{popularMovies[0].overview}</p>}
+
+
+
+    </div>
     
+        
     
     <Row title="Now Playing" arr={nowPlayingMovies} />
+    
+    <Row title="Top Rated" arr={topRatedMovies} />
+    <Row title="Popular" arr={popularMovies} />
+    <Row title="Upcoming" arr={upcomingMovies} />
     <div className="genreBox">
   
       {
@@ -93,10 +107,6 @@ const Home = () => {
         ))
       }
     </div>
-    <Row title="Top Rated" arr={topRatedMovies} />
-    <Row title="Popular" arr={popularMovies} />
-    <Row title="Upcoming" arr={upcomingMovies} />
-    
     
 
   </section>
