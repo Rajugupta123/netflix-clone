@@ -8,10 +8,10 @@ const Header = () => {
     <nav className="header">
         <img src={logo} alt='netflix logo' />
         <div>
-            <Link to="/tvshows">TvShows</Link>
-            <Link to="/tvshows">Movies</Link>
-            <Link to="/tvshows">RecentlyAdded</Link>
-            <Link to="/tvshows">MyList</Link>
+            <Link to="#">TvShows</Link>
+            <Link to="#">Movies</Link>
+            <Link to="#">RecentlyAdded</Link>
+            <Link to="#">MyList</Link>
         </div>
         <FaSearch/>
         
